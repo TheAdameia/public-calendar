@@ -1,0 +1,99 @@
+
+
+> SRC
+    App.css
+    App.jsx
+    index.css
+    main.jsx
+    > Components
+        > Authorization
+            Authorized.jsx (should be able to copy paste from HRR with some modification)
+            Login.jsx
+            Register.jsx
+        > Forms
+            EventForm.jsx (the idea is that the form is the same for create and edit, but the act of submitting is different)
+            ProfileForm.jsx
+        > Events
+            Event.jsx
+            EventsList.jsx
+        > Views
+            ApplicationViews.jsx (where currentUser state is - invokes and displays UserViews)
+            UserViews.jsx
+        > Nav
+            NavBar.jsx
+        > Pages
+            CreateEvents.jsx
+            ViewEvents.jsx
+            MyEvents.jsx
+            EditEvent.jsx
+            EditProfile.jsx
+
+    > Services
+        eventServices.jsx (FETCH, POST, PUT, DELETE)
+        userServices.jsx (FETCH, POST, PUT)
+        userEventServices.jsx (FETCH, POST, DELETE)
+
+
+
+
+checklist:
+    > 0. create git repository and NPM install ✓
+        install NPM and ensure npm run dev works ✓
+        create git repository ✓
+        create checklist file structure ✓
+    > 1. create MVP directories ✓
+        create all (anticipated) directories for MVP ✓
+        create JSX (anticipated) files for MVP ✓
+    > 2. create routes, starting at the top level and working further down
+        Main renders App ✓
+        App renders Login, Register paths
+        App renders ApplicationViews *if* authorized 
+        ApplicationViews renders UserViews
+            > UserViews: navbar, outlet, index element welcome
+                path: create event
+                path: view events
+                > path: my events
+                    edit event
+                    edit profile
+    > 3. create database, basic dummy/test data
+        create new directory outside of existing git structure
+        create database.json and populate according to MVP level ERD
+        add directory to independent github repo
+    > 4. create navbar and navbar functionality (excluding logout)
+    > 5. import login and authorization functionality
+    > 6. create shallow functionality (forms and buttons that don't actually do anything, but will)
+        Welcome page with login button, login field, and register button
+        Register page with form and create button
+        Home page with home banner and upcoming events
+        Create event page with form and create button
+        Events widget 
+        View events page with all events shown with track/untrack button
+        My events page with edit/delete events and edit profile button
+        edit event page
+        edit profile page
+    > 7. create basic CSS to approximate wireframe
+        identify JSX files that will need CSS styling and create corresponding CSS files
+        use flexbox to create basic alignment
+    > 8. create services (setting up for deep functionality)
+        fetch events
+        fetch user information
+        edit (put) event
+        delete event
+        edit (put) user information
+        create (post) event
+        create (post) user
+        create (post) userEvent ("track event")
+        delete userEvent ("untrack event")
+    > 9. create state for tracking 
+        Home page state for tracking userEvent
+        currentUser originates in ApplicationViews
+    > 10. Prop drilling?
+        currentUser drilled from ApplicationViews to UserViews
+    > 11. integrate services with state and shallow functionality (buttons) to create full functionality
+    > 12. Test functionality for compliance with MVP (Create, Read, Update, Delete)
+    > 13. explore CSS libraries
+
+
+
+
+REMEMBER FOR CSS: OPEN FLEXBOX EDITOR IN CHROME DEV TOOLS, ELEMENTS -> STYLES -> DISPLAY: FLEX; [CLICK THIS BOX]
