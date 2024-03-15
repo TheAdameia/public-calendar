@@ -1,7 +1,11 @@
+import { ProfileForm } from "../forms/ProfileForm"
 
 
 export const EditProfile = () => {
     return (
-        <div>placeholder for edit profile page, calls for profile form</div>
+        <>
+            <h2>placeholder for edit profile page, calls for profile form</h2>
+            <ProfileForm />
+        </>
     )
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { EventsList } from "../events/EventsList"
 
 
@@ -7,7 +8,9 @@ export const MyEvents = () => {
             <h2>displays the events I created!</h2>
             <h3>buttons to edit and delete go in each - all events list below</h3>
             <EventsList />
-            <button>Click this button to do absolutely nothing (edit profile)</button>
+            <li>
+                <Link to={"/myevents/editprofile"}>Edit Profile</Link>
+            </li>
         </>
     )
     

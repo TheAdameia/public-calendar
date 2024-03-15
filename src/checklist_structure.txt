@@ -70,15 +70,15 @@ checklist:
         authorization functionality
     > 6. create shallow functionality (forms and buttons that don't actually do anything, but will)
         Login page with login button, login field, and register button ✓
-        > edit profile page
-            Account form (edit/create)
+        > edit profile page ✓
+            Account form (edit/create) ✓
         > edit event page ✓
             Event form (edit/create) ✓
             > create the structure for every button that will ever display inside an event in Event.jsx ✓
                 edit ✓
                 delete ✓
                 track/untrack ✓
-        Register page with form and create button
+        Register page with form and create button ✓
         Home page with home banner and upcoming events ✓
         Create event page with form and create button
         > Events basic functionality ✓
