@@ -1,10 +1,14 @@
 import { EventForm } from "../forms/EventForm"
 
-export const EditEvent = () => {
+export const EditEvent = ({ currentUser }) => {
+    const userEditEvent = true
     return (
         <>
             <h2>Placeholder for edit event page, calls for event form</h2>
-            <EventForm />
+            <EventForm 
+                currentUser={currentUser}
+                userEditEvent={userEditEvent}
+            />
         </>
     )
 }

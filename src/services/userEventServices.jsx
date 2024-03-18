@@ -33,3 +33,9 @@ export const deleteUserEvent = (userEventId) => {
         method: "DELETE",
     })
 }
+
+
+// I also need a function that expands userEvent?userId=${currentUser.id}
+export const getTrackedEventsByUser = (currentUser) => {
+    return fetch(`http://localhost:8088/userEvent?userId=${currentUser.id}`).then(res => res.json())
+}

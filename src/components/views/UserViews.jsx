@@ -8,7 +8,7 @@ import { EditEvent } from "../pages/EditEvent"
 import { EditProfile } from "../pages/EditProfile"
 
 
-export const UserViews = () => {
+export const UserViews = ({ currentUser }) => {
     return (
         <Routes>
             <Route path="/" element={
@@ -17,17 +17,17 @@ export const UserViews = () => {
                     <Outlet />
                 </>
             }>
-                <Route index element={<Welcome/>} />
-                <Route path="createevents" element={<CreateEvents />} />
+                <Route index element={<Welcome currentUser={currentUser}/>} />
+                <Route path="createevents" element={<CreateEvents currentUser={currentUser}/>} />
                 <Route path="viewevents">
-                    <Route index element={<ViewEvents/>}>
+                    <Route index element={<ViewEvents currentUser={currentUser}/>}>
                         {/* stretch: view individual events */}
                     </Route>
                 </Route>
                 <Route path="myevents">
-                    <Route index element={<MyEvents />} />
-                    <Route path="editevent" element={<EditEvent />} />
-                    <Route path="editprofile" element={<EditProfile />} />
+                    <Route index element={<MyEvents currentUser={currentUser}/>} />
+                    <Route path="editevent" element={<EditEvent currentUser={currentUser}/>} />
+                    <Route path="editprofile" element={<EditProfile currentUser={currentUser}/>} />
                 </Route>
             </Route>
         </Routes>
