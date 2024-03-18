@@ -61,14 +61,14 @@ checklist:
         create new directory outside of existing git structure ✓
         create database.json and populate according to MVP level ERD ✓
         add directory to independent github repo ✓
-    > 4. create navbar and navbar functionality
+    > 4. create navbar and navbar functionality ✓
         create list with links ✓
         Verify navbar works as intended ✓
-        modify logout functionality so it works with the database (prereq: 5)
-    > 5. import login and authorization functionality
-        login functionality
-        authorization functionality
-    > 6. create shallow functionality (forms and buttons that don't actually do anything, but will)
+        modify logout functionality so it works with the database (prereq: 5) ✓
+    > 5. import login and authorization functionality ✓
+        login functionality ✓
+        authorization functionality ✓
+    > 6. create shallow functionality (forms and buttons that don't actually do anything, but will) ✓
         Login page with login button, login field, and register button ✓
         > edit profile page ✓
             Account form (edit/create) ✓
@@ -80,34 +80,44 @@ checklist:
                 track/untrack ✓
         Register page with form and create button ✓
         Home page with home banner and upcoming events ✓
-        Create event page with form and create button
+        Create event page with form and create button ✓
         > Events basic functionality ✓
             start with Event.jsx and create empty html ✓
             have EventList.jsx display that one event ✓
         View events page with all events shown ✓
         My events page with edit profile button ✓
-        figure out how datetime/calendar functions export and what that looks like for JSON purposes
+        figure out how datetime/calendar functions export and what that looks like for JSON purposes X
     > 7. create basic CSS to approximate wireframe (prereq: 6)
         identify JSX files that will need CSS styling and create corresponding CSS files
         use flexbox to create basic alignment
-    > 8. create services (setting up for deep functionality)
+    > 8. create services (setting up for deep functionality) ✓
         fetch events ✓
         fetch users ✓
-        edit (put) event
-        delete event
-        edit (put) user information
-        create (post) event
-        create (post) user
+        edit (put) event ✓
+        delete event ✓
+        edit (put) user information ✓
+        create (post) event ✓
+        create (post) user ✓
         fetch userEvent ✓
-        create (post) userEvent ("track event")
-        delete userEvent ("untrack event")
-    > 9. create state for tracking 
-        Home page state for tracking userEvent
-        currentUser originates in ApplicationViews
-    > 10. Prop drilling?
-        currentUser drilled from ApplicationViews to UserViews
+        create (post) userEvent ("track event") ✓
+        delete userEvent ("untrack event") ✓
+    > 9. create state for tracking X (handled elsewhere)
+        Home page state for tracking userEvent (prereq: 5) 
+        currentUser originates in ApplicationViews ✓
+    > 10. Prop drilling? X (handled elsewhere)
+        currentUser drilled from ApplicationViews to UserViews ✓
+        > where else does currentUser need to be drilled to?
         > anything necessary for the discretionary display of tickets will need to be drilled
     > 11. integrate services with state and shallow functionality (buttons) to create full functionality
+        > Create events
+            get events to actually display from the database
+            make submission actually post to the database
+        > View events
+            display events from database
+            drill boolean variable into EventList -> Event for ternary buttons
+        > My events
+            display events, filtered, from database (how/where filter?)
+            drill boolean variable into EventList -> Event for ternary buttons
     > 12. Test functionality for compliance with MVP (Create, Read, Update, Delete)
     > 13. explore CSS libraries
 

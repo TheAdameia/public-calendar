@@ -1,11 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { UserViews } from "./UserViews"
 
 export const ApplicationViews = () => {
-    // const [currentUser, setCurrentUser] = useState ({})
+    const [currentUser, setCurrentUser] = useState ({})
 
 
-    //useeffect for local user goes here
+    useEffect(() => {
+        const localCalendarUser = localStorage.getItem("calendar_user")
+        const calendarUserObject = JSON.parse(localCalendarUser)
 
-    return ( <UserViews/> )
+        setCurrentUser(calendarUserObject)
+    }, [])
+
+    return ( <UserViews currentUser={currentUser}/> )
 }
