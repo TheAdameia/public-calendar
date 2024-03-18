@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 
 export const NavBar = () => {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     return (
         <ul>
@@ -18,20 +18,20 @@ export const NavBar = () => {
             <li>
                 <Link to="/myevents">My Events</Link>
             </li>
-            {/* {localStorage.getItem("honey_user") ? (
+            {localStorage.getItem("calendar_user") ? (
                 <li className="navbar-item navbar-logout">
                     <Link
                         className="navbar-link"
                         to=""
                         onClick={() => {
-                            localStorage.removeItem("honey_user")
+                            localStorage.removeItem("calendar_user")
                             navigate("/", { replace: true })
                         }}
                     >Logout</Link>
                 </li>
                 ) : (
                 ""
-            )} */}
+            )}
         </ul>
     )
 }
