@@ -145,3 +145,6 @@ in the same way that the filename and function are.
 
 3/18: Some of the checklist items I had created were not useful for actually completing the project as their own items (9, 10) and
 others just needed to be put off so I could focus on actual functionality (7, 13). 11 is what I plan on fleshing out and doing.
+
+3/19: need the following: radio for themes drawn from a database, track/untrack. do NOT need to sort userEvent by startTime, at
+least not right now.

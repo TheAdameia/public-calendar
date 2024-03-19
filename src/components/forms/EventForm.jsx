@@ -97,16 +97,19 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
             </fieldset>
             <fieldset>
                 <div className="">
-                    <label>Theme placeholder</label>
+                    <label>Favorite theme options</label><br></br>
                     <input
-                        type="Text"
-                        placeholder=""
+                        type="radio" 
+                        value="" 
+                        id="Theme 1"
                         onChange={(event) => {
                             const eventCopy = {...eventEntry}
                             eventCopy.theme = event.target.value
                             setEventEntry(eventCopy)
                         }}
                     />
+                    <label>Theme 1</label>
+                    <br></br>
                 </div>
             </fieldset>
             <fieldset>
