@@ -50,6 +50,7 @@ export const EventsList = ({ currentUser, showAllEvents,showUsersOwnedEvents, sh
                             showAllEvents={showAllEvents}
                             showUsersOwnedEvents={showUsersOwnedEvents}
                             showUsersTrackedEvents={showUsersTrackedEvents}
+                            getAndSetEvents={getAndSetEvents}
                         />
                     )
                 })}

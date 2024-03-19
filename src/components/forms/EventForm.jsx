@@ -1,12 +1,14 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { postEvent } from "../../services/eventServices"
+import { useNavigate, useParams } from "react-router-dom"
+import { postEvent, updateEvent } from "../../services/eventServices"
 
 
 export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
     const [eventEntry, setEventEntry] = useState({address: "", startTime: "", endTime: "", description: "", theme: ""})
 
     const navigate = useNavigate()
+    const eventId = useParams()
+    // useParams() is so cursed.
 
     const handleSave = (event) => {
         event.preventDefault()
@@ -24,7 +26,19 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
     }
 
     const handleEdit = (event) => {
-        console.log("herp derp")
+        event.preventDefault()
+        const updateEventEntry = {
+            id: parseInt(eventId.eventId),
+            eventCreator: currentUser.id,
+            address: eventEntry.address,
+            startTime: eventEntry.startTime,
+            endTime: eventEntry.endTime,
+            theme: eventEntry.theme,
+            description: eventEntry.description
+        }
+        updateEvent(updateEventEntry).then(() => {
+            navigate("/viewevents")
+        })
     }
 
     return (

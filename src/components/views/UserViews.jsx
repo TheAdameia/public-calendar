@@ -26,10 +26,10 @@ export const UserViews = ({ currentUser }) => {
                 </Route>
                 <Route path="myevents">
                     <Route index element={<MyEvents currentUser={currentUser}/>} />
-                    <Route path="editevent" element={<EditEvent currentUser={currentUser}/>} />
+                    <Route path=":eventId" element={<EditEvent currentUser={currentUser}/>} />
                     <Route path="editprofile" element={<EditProfile currentUser={currentUser}/>} />
                 </Route>
             </Route>
         </Routes>
     )
-}
+} 

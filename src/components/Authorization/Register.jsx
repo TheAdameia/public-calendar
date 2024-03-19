@@ -2,6 +2,7 @@ import { ProfileForm } from "../forms/ProfileForm"
 
 
 export const Register = () => {
+    const newUser = true
 
     return (
         <main>
@@ -9,10 +10,7 @@ export const Register = () => {
                 <h1>Public Calendar</h1>
                 <h2>Please Register</h2>
             </form>
-            <ProfileForm />
-            <button
-                type="submit"
-            >ze button, it does nothing!</button>
+            <ProfileForm newUser={newUser}/>
         </main>
     )
 }

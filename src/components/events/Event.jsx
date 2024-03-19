@@ -1,8 +1,15 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
+import { deleteEvent } from "../../services/eventServices"
 
 
-export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEvents, showUsersTrackedEvents }) => {
+export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEvents, showUsersTrackedEvents, getAndSetEvents }) => {
     const navigate = useNavigate()
+
+    const handleDelete = () => {
+        deleteEvent(eventObject.id).then(() => {
+            getAndSetEvents()
+        })
+    }
 
     return (
         <section>
@@ -28,7 +35,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 { showUsersOwnedEvents ? 
                     <>
                         <button
-                            onClick={() => {navigate("/myevents/editevent")}}
+                            onClick={() => {navigate(`/myevents/${eventObject.id}`)}}
                         >Edit Event</button>
                     </> :
                     ""
@@ -36,13 +43,24 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 { showUsersOwnedEvents ? 
                     <>
                         <button 
-                            onClick={console.log("quack")}
+                            onClick={handleDelete}
                         >Delete Event</button>
                     </> :
                     ""
                 }
-                <button>Track Event</button>
-                <button>Untrack Event</button>
+                { showAllEvents ?
+                    <> 
+                        <button>Track Event</button>
+                    </> :
+                    ""
+                }
+                { showAllEvents ?
+                    <>
+                        <button>Untrack Event</button>
+                    </> : 
+                    ""
+                }
+                
             </footer>
         </section>
     )

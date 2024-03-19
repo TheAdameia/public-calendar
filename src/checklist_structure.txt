@@ -116,17 +116,17 @@ checklist:
             drill boolean variable into EventList -> Event for ternary buttons
         > My events
             display events, filtered, from database (how/where filter?) ✓
-            drill boolean variable into EventList -> Event for ternary buttons
+            drill boolean variable into EventList -> Event for ternary buttons ✓
             hook up delete event
-            > Edit event
-                hook up submission info to put
+            > Edit event ✓
+                hook up submission info to put ✓
             > Edit profile
                 hook up submission info to put
         > Home/Welcome
             display userEvents, filtered, from database (how/where filter?) ✓
             drill boolean variable into EventList -> Event for ternary buttons
-        > Register user
-            hook up submission info to post
+        > Register user ✓
+            hook up submission info to post ✓
     > 12. Test functionality for compliance with MVP (Create, Read, Update, Delete)
     > 13. explore CSS libraries
 
