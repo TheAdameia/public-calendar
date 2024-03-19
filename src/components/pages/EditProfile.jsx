@@ -1,11 +1,13 @@
 import { ProfileForm } from "../forms/ProfileForm"
 
 
-export const EditProfile = () => {
+export const EditProfile = ({ currentUser }) => {
     return (
         <>
-            <h2>placeholder for edit profile page, calls for profile form</h2>
-            <ProfileForm />
+            <h2>Edit Profile</h2>
+            <ProfileForm
+                currentUser={currentUser}
+            />
         </>
     )
 }

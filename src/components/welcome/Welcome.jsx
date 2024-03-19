@@ -10,7 +10,7 @@ export const Welcome = ({ currentUser }) => {
             <h1><span>Welcome to </span><span>Public Calendar</span></h1>
             <div>With absolutely no atrocious music references this time!</div>
             <div>
-                <h2>This should display userEvents sorted by startTime - as a placeholder it displays EventsList</h2>
+                <h2>This should display userEvents sorted by startTime - currently does not sort</h2>
                 <EventsList 
                     currentUser={currentUser}
                     showUsersTrackedEvents={showUsersTrackedEvents}

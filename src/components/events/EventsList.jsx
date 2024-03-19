@@ -15,10 +15,15 @@ export const EventsList = ({ currentUser, showAllEvents,showUsersOwnedEvents, sh
 
     // I need to do something else with this to make the output readable
     const getAndSetTrackedEvents = () => {
-        getTrackedEventsByUser(currentUser).then(trackedArray => {
+        getTrackedEventsByUser(currentUser).then(data => {
+            const trackedArray = []
+            for (const iterator of data) {
+                trackedArray.push(iterator.event)
+            }
             setFilteredEvents(trackedArray)
         })
     }
+
 
     // fetches whole array of events at the start and if currentUser changes
     useEffect(() => {

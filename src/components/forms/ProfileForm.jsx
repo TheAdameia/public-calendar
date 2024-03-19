@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { postUser } from "../../services/userServices"
+import { postUser, updateUser } from "../../services/userServices"
 
-export const ProfileForm = ({ newUser }) => {
+export const ProfileForm = ({ newUser, currentUser }) => {
     const [userProfile, setUserProfile] = useState({theme: "none"})
 
     const navigate = useNavigate()
@@ -14,6 +14,18 @@ export const ProfileForm = ({ newUser }) => {
             email: userProfile.email
         }
         postUser(newUserEntry).then(() => {
+            navigate("/")
+        })
+    }
+
+    const handleEdit = (event) => {
+        event.preventDefault()
+        const updateUserProfile = {
+            id: currentUser.id,
+            name: userProfile.name,
+            email: userProfile.email
+        }
+        updateUser(updateUserProfile).then(() => {
             navigate("/")
         })
     }
@@ -66,7 +78,7 @@ export const ProfileForm = ({ newUser }) => {
                     <button onClick={handleSave}>Create your account!</button>
                 </> :
                 <>
-                    <button>Edit profile</button>
+                    <button onClick={handleEdit}>Edit profile</button>
                 </>
             }
             </fieldset>

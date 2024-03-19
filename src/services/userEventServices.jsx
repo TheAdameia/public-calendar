@@ -37,5 +37,5 @@ export const deleteUserEvent = (userEventId) => {
 
 // I also need a function that expands userEvent?userId=${currentUser.id}
 export const getTrackedEventsByUser = (currentUser) => {
-    return fetch(`http://localhost:8088/userEvent?userId=${currentUser.id}`).then(res => res.json())
+    return fetch(`http://localhost:8088/userEvent?userId=${currentUser.id}&_expand=event`).then(res => res.json())
 }
