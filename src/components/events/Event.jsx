@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { deleteEvent } from "../../services/eventServices"
 import { deleteUserEvent, getUserEventsByUser, postUserEvent } from "../../services/userEventServices"
 import { useEffect, useState } from "react"
+import "./Event.css"
 
 
 export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEvents, showUsersTrackedEvents, getAndSetEvents }) => {
@@ -64,29 +65,30 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
     }, [currentUser])
 
     return (
-        <section>
-            <header>Event {eventObject.id}</header>
+        <section className="event">
+            <header className="event-info">Event {eventObject.id}</header>
             <div>
-                <div className="">Description</div>
+                <div className="event-info">Description</div>
                 <div>{eventObject.description}</div>
             </div>
             <div>
-                <div className="">Theme</div>
+                <div className="event-info">Theme</div>
                 <div>{eventObject.theme}</div>
             </div>
             <div>
-                <div className="">Address</div>
+                <div className="event-info">Address</div>
                 <div>{eventObject.address}</div>
             </div>
             <div>
-                <div className="">Start and End Times</div>
+                <div className="event-info">Start and End Times</div>
                 <div>{eventObject.startTime}</div>
                 <div>{eventObject.endTime}</div>
             </div>
-            <footer>
+            <footer className="btn-container">
                 { showUsersOwnedEvents ? 
                     <>
                         <button
+                            className="btn"
                             onClick={() => {navigate(`/myevents/${eventObject.id}`)}}
                         >Edit Event</button>
                     </> :
@@ -94,7 +96,8 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 }
                 { showUsersOwnedEvents ? 
                     <>
-                        <button 
+                        <button
+                            className="btn btn-warning"
                             onClick={handleDelete}
                         >Delete Event</button>
                     </> :
@@ -103,6 +106,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 { showAllEvents ?
                     <> 
                         <button
+                            className="btn btn-secondary"
                             onClick={handleCreateUserEvent}
                         >Track Event</button>
                     </> :
@@ -111,6 +115,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 { showAllEvents ?
                     <>
                         <button
+                        className="btn btn-warning"
                             onClick={handleDeleteUserEvent}
                         >Untrack Event</button>
                     </> : 

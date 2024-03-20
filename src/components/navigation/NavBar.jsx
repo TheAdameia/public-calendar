@@ -1,21 +1,22 @@
 import { Link, useNavigate } from "react-router-dom"
+import "./NavBar.css"
 
 
 export const NavBar = () => {
     const navigate = useNavigate()
 
     return (
-        <ul>
-            <li>
+        <ul className="navbar">
+            <li className="navbar-item">
                 <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className="navbar-item">
                 <Link to="/viewevents">View Events</Link>
             </li>
-            <li>
+            <li className="navbar-item">
                 <Link to="/createevents">Create Events</Link>
             </li>
-            <li>
+            <li className="navbar-item">
                 <Link to="/myevents">My Events</Link>
             </li>
             {localStorage.getItem("calendar_user") ? (
