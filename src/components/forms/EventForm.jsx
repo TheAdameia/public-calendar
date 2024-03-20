@@ -9,7 +9,6 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
 
     const navigate = useNavigate()
     const eventId = useParams()
-    // useParams() is so cursed.
 
     const getAndSetThemes = () => {
         getThemes().then(returnData => {
@@ -147,7 +146,6 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
                 </> :
                 ""
             }
-
             </fieldset>
         </form>
     )

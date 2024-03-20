@@ -4,7 +4,6 @@ import { deleteUserEvent, getUserEventsByUser, postUserEvent } from "../../servi
 import { useEffect, useState } from "react"
 
 
-
 export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEvents, showUsersTrackedEvents, getAndSetEvents }) => {
 
     const [thisUsersEvents, setThisUsersEvents] = useState([])
@@ -16,14 +15,11 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
         })
     }
     
-
     const handleDelete = () => {
         deleteEvent(eventObject.id).then(() => {
             getAndSetEvents()
         })
     }
-
-    
 
     const handleCreateUserEvent = (event) => {
         event.preventDefault()
@@ -87,7 +83,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 <div>{eventObject.startTime}</div>
                 <div>{eventObject.endTime}</div>
             </div>
-            <footer>buttons will go here. Just stick every relevant button in here and use ternary statement
+            <footer>
                 { showUsersOwnedEvents ? 
                     <>
                         <button
@@ -122,6 +118,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 }
                 
             </footer>
+            <br></br>
         </section>
     )
 }

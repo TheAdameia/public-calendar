@@ -23,7 +23,6 @@ export const EventsList = ({ currentUser, showAllEvents,showUsersOwnedEvents, sh
         })
     }
 
-    // fetches whole array of events at the start and if currentUser changes
     useEffect(() => {
         getAndSetEvents()
     }, [currentUser])

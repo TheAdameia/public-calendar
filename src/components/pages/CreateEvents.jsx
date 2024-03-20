@@ -4,7 +4,7 @@ export const CreateEvents = ({ currentUser }) => {
     const userCreateEvent = true
     return (
         <>
-            <h2>This is where we create events, or something like that</h2>
+            <h2>Create an event!</h2>
             <EventForm 
                 currentUser={currentUser}
                 userCreateEvent={userCreateEvent}
