@@ -108,17 +108,28 @@ checklist:
         currentUser drilled from ApplicationViews to UserViews ✓
         > where else does currentUser need to be drilled to?
         > anything necessary for the discretionary display of tickets will need to be drilled
-    > 11. integrate services with state and shallow functionality (buttons) to create full functionality
-        > Create events
-            get events to actually display from the database
-            make submission actually post to the database
-        > View events
-            display events from database
-            drill boolean variable into EventList -> Event for ternary buttons
-        > My events
-            display events, filtered, from database (how/where filter?)
-            drill boolean variable into EventList -> Event for ternary buttons
-    > 12. Test functionality for compliance with MVP (Create, Read, Update, Delete)
+    > 11. integrate services with state and shallow functionality (buttons) to create full functionality ✓
+        > Create events ✓
+            make submission actually post to the database ✓
+        > View events ✓
+            display events from database ✓
+            drill boolean variable into EventList -> Event for ternary buttons ✓
+        > My events ✓
+            display events, filtered, from database (how/where filter?) ✓
+            drill boolean variable into EventList -> Event for ternary buttons ✓
+            hook up delete event ✓
+            > Edit event ✓
+                hook up submission info to put ✓
+            > Edit profile ✓
+                hook up submission info to put ✓
+        > Home/Welcome ✓
+            display userEvents, filtered, from database (how/where filter?) ✓✓✓✓✓✓
+            drill boolean variable into EventList -> Event for ternary buttons ✓
+            "track" button functionality (creates userEvent) ✓
+            "untrack" button functionality (deletes userEvent) ✓
+        > Register user ✓
+            hook up submission info to post ✓
+    > 12. Test functionality for compliance with MVP (Create, Read, Update, Delete) ✓
     > 13. explore CSS libraries
 
 
@@ -131,3 +142,11 @@ REMEMBER FOR CSS: OPEN FLEXBOX EDITOR IN CHROME DEV TOOLS, ELEMENTS -> STYLES ->
 in the same way that the filename and function are.
 
 3/14: just kill the location, it's too much work. Not worth right now. Pretty sure Dave said to do that anyways.
+
+3/18: Some of the checklist items I had created were not useful for actually completing the project as their own items (9, 10) and
+others just needed to be put off so I could focus on actual functionality (7, 13). 11 is what I plan on fleshing out and doing.
+
+3/19: need the following: radio for themes drawn from a database, track/untrack. do NOT need to sort userEvent by startTime, at
+least not right now.
+
+3/20: pro tip: just don't make another module if you need the state that's in the existing module for your code to work.
