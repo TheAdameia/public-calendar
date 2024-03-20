@@ -39,3 +39,8 @@ export const deleteUserEvent = (userEventId) => {
 export const getTrackedEventsByUser = (currentUser) => {
     return fetch(`http://localhost:8088/userEvent?userId=${currentUser.id}&_expand=event`).then(res => res.json())
 }
+
+
+export const getUserEventsByUser = (currentUser) => {
+    return fetch(`http://localhost:8088/userEvent?userId=${currentUser.id}`).then(res => res.json())
+}

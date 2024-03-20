@@ -108,7 +108,7 @@ checklist:
         currentUser drilled from ApplicationViews to UserViews ✓
         > where else does currentUser need to be drilled to?
         > anything necessary for the discretionary display of tickets will need to be drilled
-    > 11. integrate services with state and shallow functionality (buttons) to create full functionality
+    > 11. integrate services with state and shallow functionality (buttons) to create full functionality ✓
         > Create events ✓
             make submission actually post to the database ✓
         > View events ✓
@@ -122,11 +122,11 @@ checklist:
                 hook up submission info to put ✓
             > Edit profile ✓
                 hook up submission info to put ✓
-        > Home/Welcome 
+        > Home/Welcome ✓
             display userEvents, filtered, from database (how/where filter?) ✓✓✓✓✓✓
             drill boolean variable into EventList -> Event for ternary buttons ✓
-            "track" button functionality (creates userEvent)
-            "untrack" button functionality (deletes userEvent)
+            "track" button functionality (creates userEvent) ✓
+            "untrack" button functionality (deletes userEvent) ✓
         > Register user ✓
             hook up submission info to post ✓
     > 12. Test functionality for compliance with MVP (Create, Read, Update, Delete) ✓
@@ -148,3 +148,5 @@ others just needed to be put off so I could focus on actual functionality (7, 13
 
 3/19: need the following: radio for themes drawn from a database, track/untrack. do NOT need to sort userEvent by startTime, at
 least not right now.
+
+3/20: pro tip: just don't make another module if you need the state that's in the existing module for your code to work.

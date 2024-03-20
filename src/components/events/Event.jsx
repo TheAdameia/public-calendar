@@ -1,15 +1,71 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { deleteEvent } from "../../services/eventServices"
+import { deleteUserEvent, getUserEventsByUser, postUserEvent } from "../../services/userEventServices"
+import { useEffect, useState } from "react"
+
 
 
 export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEvents, showUsersTrackedEvents, getAndSetEvents }) => {
+
+    const [thisUsersEvents, setThisUsersEvents] = useState([])
     const navigate = useNavigate()
+
+    const getThisUsersEvents = () => {
+        getUserEventsByUser(currentUser).then(array => {
+            setThisUsersEvents(array)
+        })
+    }
+    
 
     const handleDelete = () => {
         deleteEvent(eventObject.id).then(() => {
             getAndSetEvents()
         })
     }
+
+    
+
+    const handleCreateUserEvent = (event) => {
+        event.preventDefault()
+        const newUserEvent = {
+            eventId: eventObject.id,
+            userId: currentUser.id
+        }
+        for (const iterator of thisUsersEvents) {
+            if (iterator.userId === newUserEvent.userId && iterator.eventId === newUserEvent.eventId) {
+                window.alert("Event already tracked!")
+                return
+            }
+        }
+        postUserEvent(newUserEvent).then(() => {
+                getThisUsersEvents()
+            })
+        window.alert("Event tracked!")
+    }
+
+
+    const handleDeleteUserEvent = (event) => {
+        event.preventDefault()
+        const toBeDeletedUserEvent = {
+            eventId: eventObject.id,
+            userId: currentUser.id
+        }
+        let count = 0
+        for (const iterator of thisUsersEvents) {
+            if (iterator.userId === toBeDeletedUserEvent.userId && iterator.eventId === toBeDeletedUserEvent.eventId) {
+                deleteUserEvent(iterator.id).then(() => {
+                    getThisUsersEvents()
+                })
+                count++
+                window.alert("Event successfully untracked!")
+            }
+        }
+        if (count === 0) {window.alert("Event already untracked!")}
+    }
+
+    useEffect(() => {
+        getThisUsersEvents()
+    }, [currentUser])
 
     return (
         <section>
@@ -50,13 +106,17 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 }
                 { showAllEvents ?
                     <> 
-                        <button>Track Event</button>
+                        <button
+                            onClick={handleCreateUserEvent}
+                        >Track Event</button>
                     </> :
                     ""
                 }
                 { showAllEvents ?
                     <>
-                        <button>Untrack Event</button>
+                        <button
+                            onClick={handleDeleteUserEvent}
+                        >Untrack Event</button>
                     </> : 
                     ""
                 }

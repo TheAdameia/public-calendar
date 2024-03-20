@@ -1,14 +1,26 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { postEvent, updateEvent } from "../../services/eventServices"
-
+import { getThemes } from "../../services/themeServices"
 
 export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
     const [eventEntry, setEventEntry] = useState({address: "", startTime: "", endTime: "", description: "", theme: ""})
+    const [themesArray, setThemeArray] = useState([])
 
     const navigate = useNavigate()
     const eventId = useParams()
     // useParams() is so cursed.
+
+    const getAndSetThemes = () => {
+        getThemes().then(returnData => {
+            setThemeArray(returnData)
+        })
+    }
+
+    useEffect(() => {
+        getAndSetThemes()
+    }, [currentUser])
+
 
     const handleSave = (event) => {
         event.preventDefault()
@@ -97,19 +109,29 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
             </fieldset>
             <fieldset>
                 <div className="">
-                    <label>Favorite theme options</label><br></br>
-                    <input
-                        type="radio" 
-                        value="" 
-                        id="Theme 1"
-                        onChange={(event) => {
-                            const eventCopy = {...eventEntry}
-                            eventCopy.theme = event.target.value
-                            setEventEntry(eventCopy)
-                        }}
-                    />
-                    <label>Theme 1</label>
-                    <br></br>
+                    <label>Select the best-fitting Theme</label>
+                    {themesArray.map((themeObject) => {
+                        return (
+                            <div
+                                key={themeObject.id}
+                            >
+                                <input
+                                    type="radio" 
+                                    value={themeObject.theme} 
+                                    id={themeObject.id}
+                                    name="theme"
+                                    
+                                    onChange={(event) => {
+                                        const eventCopy = {...eventEntry}
+                                        eventCopy.theme = event.target.value
+                                        setEventEntry(eventCopy)
+                                    }}
+                                />
+                                <label>{themeObject.theme}</label>
+                                <br></br>
+                            </div>
+                        )
+                    })}
                 </div>
             </fieldset>
             <fieldset>
@@ -130,11 +152,3 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
         </form>
     )
 }
-
-// note: because state for the event will be handled in the form itself, I will probably have to use a ternary statement
-// to determine if the event is updated as opposed to created.
-
-// if I do this as I have planned it, I may have to use a bajillion ternary statements to create the right filler text.
-// That may not be a good idea.
-
-// I have no idea if I need a dropdown, a select, or WHAT for theme.
