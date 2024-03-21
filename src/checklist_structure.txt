@@ -150,3 +150,5 @@ others just needed to be put off so I could focus on actual functionality (7, 13
 least not right now.
 
 3/20: pro tip: just don't make another module if you need the state that's in the existing module for your code to work.
+
+3/21: oh, I need the readme too.

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { postEvent, updateEvent } from "../../services/eventServices"
 import { getThemes } from "../../services/themeServices"
+import "./Form.css"
 
 export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
     const [eventEntry, setEventEntry] = useState({address: "", startTime: "", endTime: "", description: "", theme: ""})
@@ -56,8 +57,8 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
         <form>
             <h2>Enter Event Information</h2>
             <fieldset>
-                <div className="">
-                    <label>Description</label>
+                <div className="form-group">
+                    <label className="form-label">Description</label>
                     <input
                         type="Text"
                         placeholder="Title and describe your event!"
@@ -70,8 +71,8 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="">
-                    <label>Address</label>
+                <div className="form-group">
+                    <label className="form-label">Address</label>
                     <input
                         type="Text"
                         placeholder="Where's the event at?"
@@ -84,9 +85,10 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="">
-                    <label>Start, end time</label>
+                <div className="form-group-datetime">
+                    <label className="form-label">Start, end times</label>
                     <input
+                        className="datetime"
                         type="datetime-local"
                         placeholder="start time"
                         onChange={(event) => {
@@ -96,6 +98,7 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
                         }}
                     />
                     <input
+                        className="datetime"
                         type="datetime-local"
                         placeholder="end time"
                         onChange={(event) => {
@@ -107,8 +110,8 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="">
-                    <label>Select the best-fitting Theme</label>
+                <div className="form-group">
+                    <label className="form-label">Select the best-fitting Theme</label>
                     {themesArray.map((themeObject) => {
                         return (
                             <div
@@ -136,13 +139,17 @@ export const EventForm = ({ currentUser, userCreateEvent, userEditEvent }) => {
             <fieldset>
             { userCreateEvent ? 
                 <>
-                <button onClick={handleSave}>Submit new event</button>
+                <button
+                    className="btn-primary"
+                    onClick={handleSave}>Submit new event</button>
                 </> :
                 ""
             }
             { userEditEvent ? 
                 <>
-                <button onClick={handleEdit}>Edit event</button>
+                <button
+                    className="btn-primary"
+                    onClick={handleEdit}>Edit event</button>
                 </> :
                 ""
             }

@@ -1,5 +1,5 @@
 import { EventsList } from "../events/EventsList"
-
+import "../pages/Pages.css"
 
 export const Welcome = ({ currentUser }) => {
     const showUsersTrackedEvents = true

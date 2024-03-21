@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Event } from "./Event"
 import { getEvents } from "../../services/eventServices"
 import { getTrackedEventsByUser } from "../../services/userEventServices"
+import "./Event.css"
 
 export const EventsList = ({ currentUser, showAllEvents,showUsersOwnedEvents, showUsersTrackedEvents }) => {
     const [allEvents, setAllEvents] = useState([])
@@ -41,8 +42,8 @@ export const EventsList = ({ currentUser, showAllEvents,showUsersOwnedEvents, sh
     }, [currentUser, allEvents])
 
     return (
-        <div>
-            <article>
+        <div className="events-container">
+            <article className="events">
                 {filteredEvents.map((eventObject) => {
                     return (
                         <Event
