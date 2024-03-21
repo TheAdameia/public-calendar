@@ -54,7 +54,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                     getThisUsersEvents()
                 })
                 count++
-                window.alert("Event successfully untracked!")
+                getAndSetEvents()
             }
         }
         if (count === 0) {window.alert("Event already untracked!")}
@@ -88,7 +88,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                 { showUsersOwnedEvents ? 
                     <>
                         <button
-                            className="btn"
+                            className="btn btn-secondary"
                             onClick={() => {navigate(`/myevents/${eventObject.id}`)}}
                         >Edit Event</button>
                     </> :
@@ -103,7 +103,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                     </> :
                     ""
                 }
-                { showAllEvents ?
+                { showAllEvents || showUsersTrackedEvents ?
                     <> 
                         <button
                             className="btn btn-secondary"
@@ -112,7 +112,7 @@ export const Event = ({ currentUser, eventObject, showAllEvents,showUsersOwnedEv
                     </> :
                     ""
                 }
-                { showAllEvents ?
+                { showAllEvents || showUsersTrackedEvents ?
                     <>
                         <button
                         className="btn btn-warning"

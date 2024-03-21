@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { postUser, updateUser } from "../../services/userServices"
+import "./Form.css"
 
 export const ProfileForm = ({ newUser, currentUser }) => {
     const [userProfile, setUserProfile] = useState({theme: "none"})
@@ -34,9 +35,10 @@ export const ProfileForm = ({ newUser, currentUser }) => {
         <form>
             <h2>Enter Profile Information</h2>
             <fieldset>
-                <div className="">
-                    <label>Name</label>
+                <div className="form-group">
+                    <label className="form-label">Name</label>
                     <input
+                        className="datetime"
                         type="text"
                         placeholder="enter name"
                         required
@@ -49,9 +51,10 @@ export const ProfileForm = ({ newUser, currentUser }) => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="">
-                    <label>Email</label>
+                <div className="form-group">
+                    <label className="form-label">Email</label>
                     <input
+                        className="datetime"
                         type="email"
                         placeholder="enter email"
                         required
@@ -64,7 +67,7 @@ export const ProfileForm = ({ newUser, currentUser }) => {
                 </div>
             </fieldset>
             {/* <fieldset>
-                <div className="">
+                <div className="form-group">
                     <label>Favorite Theme</label>
                     <input
                         type="text"
@@ -75,10 +78,14 @@ export const ProfileForm = ({ newUser, currentUser }) => {
             <fieldset>
             { newUser ?
                 <>
-                    <button onClick={handleSave}>Create your account!</button>
+                    <button
+                        className="btn-primary"
+                        onClick={handleSave}>Create your account!</button>
                 </> :
                 <>
-                    <button onClick={handleEdit}>Edit profile</button>
+                    <button
+                        className="btn-primary"
+                        onClick={handleEdit}>Edit profile</button>
                 </>
             }
             </fieldset>

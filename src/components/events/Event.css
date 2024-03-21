@@ -12,11 +12,8 @@
   }
 
   .event {
-    background-color: var(--white);
-    border: 1px solid var(--outline);
-    margin: 0.5rem 0;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    border: 2px double #1C6EA4;
+    margin: .5rem
   }
 
   /* This targets all the child elements of the element with the .event class */
@@ -25,8 +22,10 @@
   }
 
   .event-info {
-    color: var(--outline);
+    color: #1C6EA4;
     font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 
   /* This targets any footer element that is a child of an element with the .event class */
