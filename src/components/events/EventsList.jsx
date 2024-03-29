@@ -3,10 +3,12 @@ import { Event } from "./Event"
 import { getEvents } from "../../services/eventServices"
 import { getTrackedEventsByUser } from "../../services/userEventServices"
 import "./Event.css"
+import { SearchBar } from "./SearchBar"
 
 export const EventsList = ({ currentUser, showAllEvents,showUsersOwnedEvents, showUsersTrackedEvents }) => {
     const [allEvents, setAllEvents] = useState([])
     const [filteredEvents, setFilteredEvents] = useState([])
+    const [searchTerm, setSearchTerm] = useState("")
 
     const getAndSetEvents = () => {
         getEvents().then(eventsArray => {
@@ -41,8 +43,16 @@ export const EventsList = ({ currentUser, showAllEvents,showUsersOwnedEvents, sh
         }
     }, [currentUser, allEvents])
 
+    useEffect(() => {
+        const foundEvents = allEvents.filter(eventObject => eventObject.description.toLowerCase().includes(searchTerm.toLowerCase()))
+        setFilteredEvents(foundEvents)
+    }, [searchTerm, allEvents])
+
     return (
         <div className="events-container">
+            <SearchBar
+                setSearchTerm={setSearchTerm}
+            />
             <article className="events">
                 {filteredEvents.map((eventObject) => {
                     return (

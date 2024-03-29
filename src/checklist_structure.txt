@@ -152,3 +152,12 @@ least not right now.
 3/20: pro tip: just don't make another module if you need the state that's in the existing module for your code to work.
 
 3/21: oh, I need the readme too.
+
+3/29: I can create a search bar by doing the following: create state in EventList and drill the function part of the state expression
+into a new module. That module exports the button that uses said function to modify state. In EventList, I create a useEffect that 
+listens for changes to the search state and the master list of all events in its dependency array. The useEffect defines a variable
+which is a result of filter() the master tick list to includes() the search state. It then sets the filtered events as that variable.
+Therefore, whenever a change occurs in the input field, it is applied to the state, triggering the useEffect, which triggers a change
+in the filtered events state, which triggers a refresh.
+
+3/29: Well damn, that took all of 30 minutes from the time I actually started writing out the problem. Hm. What next?
